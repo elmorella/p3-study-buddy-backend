@@ -19,7 +19,7 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public List<Card> getCardBySetId(long setId) {
-        return cardRepository.findBySetId(setId);
+        return cardRepository.findBySetSetId(setId);
     }
 
     @Override

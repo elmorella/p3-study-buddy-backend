@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="SET")
+@Table(name="CARDSETS")
 public class Set {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
