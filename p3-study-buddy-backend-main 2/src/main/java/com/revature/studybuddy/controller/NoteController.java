@@ -20,21 +20,22 @@ public class NoteController {
         this.noteService = noteService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/note")
     public ResponseEntity<List<Note>> getAllNotes(){
         List<Note> notes = noteService.getAllNotes();
         return new ResponseEntity<>(notes, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{noteid}")
     public ResponseEntity<Note> getNoteById(@PathVariable("id") Long id){
         Note setNoteByID = noteService.getNoteById(id);
         return new ResponseEntity<>(setNoteByID, HttpStatus.OK);
     }
 
     @PostMapping("/addNote")
-    public Note setNoteService(@RequestBody Note note){
-        return noteService.addNote(note);
+    public ResponseEntity<Note> addNote(@RequestBody Note note){
+        Note returnNote = noteService.addNote(note);
+        return new ResponseEntity<>(returnNote,HttpStatus.CREATED);
     }
 
 }
