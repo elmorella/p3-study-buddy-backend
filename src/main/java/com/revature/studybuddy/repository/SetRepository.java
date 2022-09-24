@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SetRepository extends JpaRepository<Set, Long> {
+
 }
