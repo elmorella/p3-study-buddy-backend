@@ -29,4 +29,9 @@ public class SetServiceImpl implements SetService {
     public Set addSet(Set set) {
         return setRepository.save(set);
     }
+
+    @Override
+    public List<Set> search(String keyword) {
+        return setRepository.search(keyword);
+    }
 }
