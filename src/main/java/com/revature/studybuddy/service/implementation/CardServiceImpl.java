@@ -2,13 +2,11 @@ package com.revature.studybuddy.service.implementation;
 
 import com.revature.studybuddy.entity.Card;
 import com.revature.studybuddy.repository.CardRepository;
-import com.revature.studybuddy.repository.SetRepository;
 import com.revature.studybuddy.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CardServiceImpl implements CardService {
@@ -18,8 +16,8 @@ public class CardServiceImpl implements CardService {
 
 
     @Override
-    public List<Card> getCardBySetId(long setId) {
-        return cardRepository.findBySetSetId(setId);
+    public List<Card> getCardByDeckId(long deckId) {
+        return cardRepository.findByDeckDeckId(deckId);
     }
 
     @Override

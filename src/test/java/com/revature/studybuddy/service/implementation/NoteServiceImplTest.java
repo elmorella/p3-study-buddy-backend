@@ -1,7 +1,6 @@
 package com.revature.studybuddy.service.implementation;
 
 import com.revature.studybuddy.entity.Note;
-import com.revature.studybuddy.entity.Set;
 import com.revature.studybuddy.repository.NoteRepository;
 import com.revature.studybuddy.service.NoteService;
 import org.junit.jupiter.api.Test;

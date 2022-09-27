@@ -1,8 +1,6 @@
 package com.revature.studybuddy.controller;
 
 import com.revature.studybuddy.entity.Note;
-import com.revature.studybuddy.entity.Set;
-import com.revature.studybuddy.service.CardService;
 import com.revature.studybuddy.service.NoteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

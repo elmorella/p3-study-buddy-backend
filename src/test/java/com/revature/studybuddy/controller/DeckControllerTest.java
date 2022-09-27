@@ -1,8 +1,8 @@
 package com.revature.studybuddy.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.studybuddy.entity.Set;
-import com.revature.studybuddy.service.SetService;
+import com.revature.studybuddy.entity.Deck;
+import com.revature.studybuddy.service.DeckService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,68 +17,68 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-@WebMvcTest(SetController.class)
-class SetControllerTest {
+@WebMvcTest(DeckController.class)
+class DeckControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper mapper;
     @MockBean
-    private SetService setService;
+    private DeckService deckService;
     @Test
-    public void testGetAllSet() throws Exception {
-        List<Set> setList = new ArrayList<>();
-        setList.add(new Set(1L,"First","First description"));
-        setList.add(new Set(2L, "Second", "Second description"));
-        Mockito.when(setService.getAllSets()).thenReturn(setList);
+    public void testGetAllDeck() throws Exception {
+        List<Deck> deckList = new ArrayList<>();
+        deckList.add(new Deck(1L,"First","First description"));
+        deckList.add(new Deck(2L, "Second", "Second description"));
+        Mockito.when(deckService.getAllDecks()).thenReturn(deckList);
 
-        String url ="/set/all";
+        String url ="/deck/all";
 
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
                 .andReturn();
         String actualJsonResponse = mvcResult.getResponse().getContentAsString();
-        String expectedJsonResponse = mapper.writeValueAsString(setList);
+        String expectedJsonResponse = mapper.writeValueAsString(deckList);
 
         assertEquals(actualJsonResponse,expectedJsonResponse);
 
     }
 
     @Test
-    void getSetById() throws Exception {
-        Set set = new Set(1L,"First","First description");
-        Mockito.when(setService.getSetById(set.getSetId())).thenReturn(set);
+    void getDeckById() throws Exception {
+        Deck deck = new Deck(1L,"First","First description");
+        Mockito.when(deckService.getDeckById(deck.getDeckId())).thenReturn(deck);
 
-        String url ="/set/" + set.getSetId();
+        String url ="/deck/" + deck.getDeckId();
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
                 .andReturn();
         String actualJsonResponse = mvcResult.getResponse().getContentAsString();
-        String expectedJsonResponse = mapper.writeValueAsString(set);
+        String expectedJsonResponse = mapper.writeValueAsString(deck);
 
         assertEquals(actualJsonResponse,expectedJsonResponse);
 
     }
 
     @Test
-    void addSet() throws Exception {
-        Set newSet = new Set();
-        newSet.setTitle("New");
-        newSet.setDescription("If has id, was saved");
-        Set savedSet =  new Set(1L,"New","If has id, was saved");
-        Mockito.when(setService.addSet(newSet)).thenReturn(savedSet);
+    void addDeck() throws Exception {
+        Deck newDeck = new Deck();
+        newDeck.setTitle("New");
+        newDeck.setDescription("If has id, was saved");
+        Deck savedDeck =  new Deck(1L,"New","If has id, was saved");
+        Mockito.when(deckService.addDeck(newDeck)).thenReturn(savedDeck);
 
-        String url ="/set/add";
+        String url ="/deck/add";
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(url)
                 .contentType("application/json")
-                .content(mapper.writeValueAsString(newSet)))
+                .content(mapper.writeValueAsString(newDeck)))
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
                 .andReturn();
         String actualJsonResponse = mvcResult.getResponse().getContentAsString();
-        String expectedJsonResponse = mapper.writeValueAsString(savedSet);
+        String expectedJsonResponse = mapper.writeValueAsString(savedDeck);
 
         assertEquals(actualJsonResponse,expectedJsonResponse);
     }

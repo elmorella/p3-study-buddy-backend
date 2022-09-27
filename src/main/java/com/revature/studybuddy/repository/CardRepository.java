@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public interface CardRepository extends JpaRepository<Card, Long> {
-    List<Card> findBySetSetId(long id);
+    List<Card> findByDeckDeckId(long id);
 
-    @Query("SELECT c FROM Card c WHERE c.term LIKE :keyword OR c.definition LIKE :keyword")
+    @Query("SELECT c FROM Card c WHERE c.title LIKE :keyword OR c.description LIKE :keyword")
     public List<Card> search(@Param("keyword") String keyword);
 }

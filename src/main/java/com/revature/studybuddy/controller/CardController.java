@@ -1,7 +1,6 @@
 package com.revature.studybuddy.controller;
 
 import com.revature.studybuddy.entity.Card;
-import com.revature.studybuddy.entity.Set;
 import com.revature.studybuddy.service.CardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +17,10 @@ public class CardController {
         this.cardService = cardService;
     }
 
-    @GetMapping("/{setId}")
-    public ResponseEntity<List<Card>> getCardsBySetId(@PathVariable("setId") Long setId){
-        List<Card> cardsBySetId = cardService.getCardBySetId(setId);
-        return new ResponseEntity<>(cardsBySetId, HttpStatus.OK);
+    @GetMapping("/{deckId}")
+    public ResponseEntity<List<Card>> getCardsByDeckId(@PathVariable("deckId") Long deckId){
+        List<Card> cardsByDeckId = cardService.getCardByDeckId(deckId);
+        return new ResponseEntity<>(cardsByDeckId, HttpStatus.OK);
     }
 
     @PostMapping("/add")
