@@ -26,5 +26,10 @@ public class CardServiceImpl implements CardService {
     public Card addCard(Card card) {
         return cardRepository.save(card);
     }
+
+    @Override
+    public List<Card> search(String keyword) {
+        return cardRepository.search(keyword);
+    }
 }
 

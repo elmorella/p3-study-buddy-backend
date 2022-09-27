@@ -27,4 +27,9 @@ public class NoteServiceImpl implements NoteService {
     public Note addNote(Note note) {
         return noteRepository.save(note);
     }
+
+    @Override
+    public List<Note> search(String keyword) {
+        return noteRepository.search(keyword);
+    }
 }

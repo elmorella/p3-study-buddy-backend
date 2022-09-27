@@ -11,6 +11,7 @@ public interface NoteService {
     List<Note> getAllNotes();
     Note getNoteById(long noteId);
     Note addNote(Note note);
+    List<Note> search(String keyword);
 }
 
 

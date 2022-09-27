@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface CardService {
         List<Card> getCardBySetId(long setId);
         Card addCard(Card card);
+        List<Card> search(String keyword);
     }
