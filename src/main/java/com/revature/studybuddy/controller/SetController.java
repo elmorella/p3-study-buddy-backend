@@ -30,4 +30,9 @@ public class SetController {
         Set returnSet = setService.addSet(newSet);
         return new ResponseEntity<>(returnSet, HttpStatus.CREATED);
     }
+    @GetMapping("/{keyword}")
+    public ResponseEntity<List<Set>> searchSets(@PathVariable("keyword") String keyword){
+        List<Set> sets = setService.search(keyword);
+        return new ResponseEntity<>(sets, HttpStatus.OK);
+    }
 }

@@ -11,5 +11,5 @@ public interface SetService {
     List<Set> getAllSets();
     Set getSetById(long setId);
     Set addSet(Set set);
-
+    List<Set> search(String keyword);
 }
