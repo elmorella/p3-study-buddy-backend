@@ -32,7 +32,7 @@ public class NoteController {
         Note returnNote = noteService.addNote(newNote);
         return new ResponseEntity<>(returnNote, HttpStatus.CREATED);
     }
-    @GetMapping("/{keyword}")
+    @GetMapping("/search/{keyword}")
     public ResponseEntity<List<Note>> searchNotes(@PathVariable("keyword") String keyword){
         List<Note> notes = noteService.search(keyword);
         return new ResponseEntity<>(notes, HttpStatus.OK);

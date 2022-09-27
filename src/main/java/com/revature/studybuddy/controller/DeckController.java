@@ -30,7 +30,7 @@ public class DeckController {
         Deck returnDeck = deckService.addDeck(newDeck);
         return new ResponseEntity<>(returnDeck, HttpStatus.CREATED);
     }
-    @GetMapping("/{keyword}")
+    @GetMapping("/search/{keyword}")
     public ResponseEntity<List<Deck>> searchDecks(@PathVariable("keyword") String keyword){
         List<Deck> decks = deckService.search(keyword);
         return new ResponseEntity<>(decks, HttpStatus.OK);
