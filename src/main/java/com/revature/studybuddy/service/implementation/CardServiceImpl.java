@@ -27,7 +27,7 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public List<Card> search(String keyword) {
-        return cardRepository.search(keyword);
+        return cardRepository.searchCard(keyword);
     }
 }
 

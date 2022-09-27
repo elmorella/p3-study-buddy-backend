@@ -13,5 +13,5 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     List<Card> findByDeckDeckId(long id);
 
     @Query("SELECT c FROM Card c WHERE c.title LIKE :keyword OR c.description LIKE :keyword")
-    public List<Card> search(@Param("keyword") String keyword);
+    public List<Card> searchCard(@Param("keyword") String keyword);
 }
