@@ -23,7 +23,7 @@ public class Card {
     private String title;
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name="deckId",referencedColumnName = "deckId")
     private Deck deck;

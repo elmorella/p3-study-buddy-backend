@@ -30,6 +30,6 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public List<Note> search(String keyword) {
-        return noteRepository.search(keyword);
+        return noteRepository.search("%" + keyword + "%");
     }
 }
