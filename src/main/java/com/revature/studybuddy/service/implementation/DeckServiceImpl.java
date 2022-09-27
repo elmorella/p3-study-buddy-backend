@@ -31,6 +31,6 @@ public class DeckServiceImpl implements DeckService {
 
     @Override
     public List<Deck> search(String keyword) {
-        return deckRepository.search(keyword);
+        return deckRepository.search("%" + keyword + "%");
     }
 }

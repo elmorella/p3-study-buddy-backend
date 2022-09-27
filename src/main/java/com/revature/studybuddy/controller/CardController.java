@@ -29,7 +29,7 @@ public class CardController {
         return new ResponseEntity<>(returnCard, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{keyword}")
+    @GetMapping("/search/{keyword}")
     public ResponseEntity<List<Card>> searchCards(@PathVariable("keyword") String keyword){
         List<Card> cards = cardService.search(keyword);
         return new ResponseEntity<>(cards, HttpStatus.OK);
