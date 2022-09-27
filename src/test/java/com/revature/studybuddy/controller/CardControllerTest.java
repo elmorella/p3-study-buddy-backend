@@ -1,9 +1,8 @@
 package com.revature.studybuddy.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.studybuddy.entity.Card;
-import com.revature.studybuddy.entity.Set;
+import com.revature.studybuddy.entity.Deck;
 import com.revature.studybuddy.service.CardService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -29,16 +28,16 @@ class CardControllerTest {
     @MockBean
     private CardService cardService;
     @Test
-    void getCardsBySetId() throws Exception {
+    void getCardsByDeckId() throws Exception {
         List<Card> cardList = new ArrayList<>();
-        Set searchedSet = new Set();
-        searchedSet.setSetId(1L);
-        cardList.add(new Card(1L,"First","The First",searchedSet));
-        cardList.add(new Card(2L,"Second","Not The First",searchedSet));
-        cardList.add(new Card(3L,"Third","Knot The First",searchedSet));
-        Mockito.when(cardService.getCardBySetId(searchedSet.getSetId())).thenReturn(cardList);
+        Deck searchedDeck = new Deck();
+        searchedDeck.setDeckId(1L);
+        cardList.add(new Card(1L,"First","The First", searchedDeck));
+        cardList.add(new Card(2L,"Second","Not The First", searchedDeck));
+        cardList.add(new Card(3L,"Third","Knot The First", searchedDeck));
+        Mockito.when(cardService.getCardByDeckId(searchedDeck.getDeckId())).thenReturn(cardList);
 
-        String url ="/card/" + searchedSet.getSetId();
+        String url ="/card/" + searchedDeck.getDeckId();
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
@@ -52,10 +51,10 @@ class CardControllerTest {
     @Test
     void addCard() throws Exception {
         Card newCard = new Card();
-        newCard.setTerm("First");
-        newCard.setDefinition("The First");
-        Set set = new Set();
-        Card savedCard = new Card(1L, "First", "The First", set);
+        newCard.setTitle("First");
+        newCard.setDescription("The First");
+        Deck deck = new Deck();
+        Card savedCard = new Card(1L, "First", "The First", deck);
         Mockito.when(cardService.addCard(newCard)).thenReturn(savedCard);
 
         String url ="/card/add";

@@ -6,18 +6,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class SetTest {
+class DeckTest {
 
     @Test
     void builder() {
-        Set builderSet = Set.builder()
-                .setId(1L)
-                .title("TestSet")
+        Deck builderDeck = Deck.builder()
+                .deckId(1L)
+                .title("TestDeck")
                 .description("TestDescription")
                 .build();
 
-        assertEquals(builderSet.getSetId(), 1L);
-        assertEquals(builderSet.getTitle(), "TestSet");
-        assertEquals(builderSet.getDescription(), "TestDescription");
+        assertEquals(builderDeck.getDeckId(), 1L);
+        assertEquals(builderDeck.getTitle(), "TestDeck");
+        assertEquals(builderDeck.getDescription(), "TestDescription");
     }
 }

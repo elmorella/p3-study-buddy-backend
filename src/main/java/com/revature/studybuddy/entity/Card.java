@@ -20,11 +20,11 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardId;
 
-    private String term;
-    private String definition;
+    private String title;
+    private String description;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name="setId",referencedColumnName = "setId")
-    private Set set;
+    @JoinColumn(name="deckId",referencedColumnName = "deckId")
+    private Deck deck;
 }

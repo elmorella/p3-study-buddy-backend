@@ -12,11 +12,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="CARDSETS")
-public class Set {
+@Table(name="DECKS")
+public class Deck {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long setId;
+    private Long deckId;
 
     private String title;
     private String description;

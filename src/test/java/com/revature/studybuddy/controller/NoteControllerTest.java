@@ -1,9 +1,7 @@
 package com.revature.studybuddy.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.studybuddy.entity.Note;
-import com.revature.studybuddy.entity.Set;
 import com.revature.studybuddy.service.NoteService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

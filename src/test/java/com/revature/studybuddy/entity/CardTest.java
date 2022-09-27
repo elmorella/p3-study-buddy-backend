@@ -10,12 +10,12 @@ class CardTest {
     void builder() {
         Card builderCard = Card.builder()
                 .cardId(1L)
-                .term("TestCard")
-                .definition("TestDescription")
+                .title("TestCard")
+                .description("TestDescription")
                 .build();
 
         assertEquals(builderCard.getCardId(), 1L);
-        assertEquals(builderCard.getTerm(), "TestCard");
-        assertEquals(builderCard.getDefinition(), "TestDescription");
+        assertEquals(builderCard.getTitle(), "TestCard");
+        assertEquals(builderCard.getDescription(), "TestDescription");
     }
 }
